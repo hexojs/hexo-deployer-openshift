@@ -1,0 +1,45 @@
+{
+  "name": "hexo-deployer-openshift",
+  "version": "0.0.1",
+  "description": "OpenShift deployer plugin of Hexo.",
+  "main": "index",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "repository": "hexojs/hexo-deployer-openshift",
+  "homepage": "http://hexo.io/",
+  "keywords": [
+    "hexo",
+    "openshift",
+    "deploy",
+    "deployer"
+  ],
+  "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
+  "license": "MIT",
+  "devDependencies": {
+    "bluebird": "^2.9.1",
+    "chai": "^1.9.1",
+    "coveralls": "^2.11.2",
+    "gulp": "^3.8.9",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-jshint": "^1.8.6",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-mocha": "^2.0.0",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "^2.0.1",
+    "rimraf": "^2.2.8"
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "hexo-fs": "^0.1.0",
+    "hexo-util": "^0.1.0",
+    "moment": "^2.8.4",
+    "swig": "^1.4.2"
+  }
+}

@@ -1,0 +1,1 @@
+hexo.extend.deployer.register('openshift', require('./lib/deployer'));
