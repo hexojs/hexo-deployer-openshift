@@ -1,3 +1,5 @@
+'use strict';
+
 var path = require('path');
 var superstatic = require('superstatic');
 var port = process.env.OPENSHIFT_NODEJS_PORT || 4000;
@@ -9,7 +11,7 @@ var app = superstatic({
   host: host
 });
 
-app.listen(function(err){
+app.listen(function(err) {
   if (err) throw err;
   console.log('Server listening on http://%s:%s', host, port);
 });
