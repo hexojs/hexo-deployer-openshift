@@ -34,25 +34,25 @@ describe('OpenShift deployer', function() {
     });
   }
 
-  before(function() {
-    return fs.writeFile(pathFn.join(publicDir, 'foo.txt'), 'foo');
-  });
-
   beforeEach(function() {
     // Create a bare repo as a fake remote repo
-    return fs.mkdirs(fakeRemote).then(function() {
-      return spawn('git', ['init', '--bare', fakeRemote]);
-    });
-  });
+    return fs.writeFile(pathFn.join(publicDir, 'foo.txt'), 'foo')
+      .then(function(){
 
-  after(function() {
-    return fs.rmdir(baseDir);
+        return fs.mkdirs(fakeRemote)
+      }).then(function() {
+        return spawn('git', ['init', '--bare', fakeRemote]);
+      });
   });
 
   afterEach(function() {
-    return fs.rmdir(fakeRemote).then(function() {
+    return fs.rmdir(fakeRemote)
+    .then(function() {
       return fs.rmdir(validateDir);
-    });
+    })
+    .then(function() {
+      return fs.rmdir(baseDir);
+    })
   });
 
   function clone() {
@@ -86,7 +86,7 @@ describe('OpenShift deployer', function() {
 
   it('server test');
 
-  it.skip('custom message', function() {
+  it('custom message', function() {
     return deployer({
       repo: fakeRemote,
       message: 'custom message',
