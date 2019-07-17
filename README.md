@@ -37,4 +37,4 @@ $ rm -rf .deploy_openshift
 
 MIT
 
-[Hexo]: http://hexo.io/
+[Hexo]: https://hexo.io/

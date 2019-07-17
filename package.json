@@ -5,7 +5,6 @@
   "main": "index",
   "scripts": {
     "eslint": "eslint .",
-    "jscs": "jscs .",
     "test": "mocha test/index.js",
     "test-cov": "istanbul cover --print both _mocha -- test/index.js"
   },
@@ -13,7 +12,7 @@
     "lib": "./lib"
   },
   "repository": "hexojs/hexo-deployer-openshift",
-  "homepage": "http://hexo.io/",
+  "homepage": "https://hexo.io/",
   "keywords": [
     "hexo",
     "openshift",
@@ -25,12 +24,11 @@
   "devDependencies": {
     "bluebird": "^3.4.0",
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-hexo": "^1.0.3",
+    "eslint": "^6.0.1",
+    "eslint-config-hexo": "^3.0.0",
     "istanbul": "^0.4.3",
-    "jscs": "^3.0.4",
-    "jscs-preset-hexo": "^1.0.1",
-    "mocha": "^6.0.2"
+    "mocha": "^6.0.2",
+    "superstatic": "^6.0.4"
   },
   "dependencies": {
     "chalk": "^2.4.1",
