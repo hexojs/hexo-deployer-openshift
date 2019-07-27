@@ -2,15 +2,21 @@
   "name": "hexo-deployer-openshift",
   "version": "0.1.2",
   "description": "OpenShift deployer plugin of Hexo.",
-  "main": "index",
+  "main": "index.js",
   "scripts": {
     "eslint": "eslint .",
     "test": "mocha test/index.js",
     "test-cov": "istanbul cover --print both _mocha -- test/index.js"
   },
   "directories": {
+    "assets": "./assets",
     "lib": "./lib"
   },
+  "files": [
+    "index.js",
+    "assets/",
+    "lib/"
+  ],
   "repository": "hexojs/hexo-deployer-openshift",
   "homepage": "https://hexo.io/",
   "keywords": [
