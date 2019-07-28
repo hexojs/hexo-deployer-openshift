@@ -1,56 +1,56 @@
 'use strict';
 
-var should = require('chai').should(); // eslint-disable-line
-var pathFn = require('path');
-var util = require('hexo-util');
-var fs = require('hexo-fs');
-var Promise = require('bluebird');
-var spawn = util.spawn;
+const should = require('chai').should(); // eslint-disable-line
+const pathFn = require('path');
+const util = require('hexo-util');
+const fs = require('hexo-fs');
+const Promise = require('bluebird');
+const spawn = util.spawn;
 
-var assetDir = pathFn.join(__dirname, '../assets');
+const assetDir = pathFn.join(__dirname, '../assets');
 
-describe('OpenShift deployer', function() {
-  var baseDir = pathFn.join(__dirname, 'deployer_test');
-  var publicDir = pathFn.join(baseDir, 'public');
-  var fakeRemote = pathFn.join(baseDir, 'remote');
-  var validateDir = pathFn.join(baseDir, 'validate');
+describe('OpenShift deployer', () => {
+  const baseDir = pathFn.join(__dirname, 'deployer_test');
+  const publicDir = pathFn.join(baseDir, 'public');
+  const fakeRemote = pathFn.join(baseDir, 'remote');
+  const validateDir = pathFn.join(baseDir, 'validate');
 
-  var ctx = {
+  const ctx = {
     base_dir: baseDir,
     public_dir: publicDir,
     log: {
-      info: function() {}
+      info: () => {}
     }
   };
 
-  var deployer = require('../lib/deployer').bind(ctx);
+  const deployer = require('../lib/deployer').bind(ctx);
 
   function compareFile(a, b) {
     return Promise.all([
       fs.readFile(a),
       fs.readFile(b)
-    ]).then(function(result) {
+    ]).then(result => {
       result[0].should.eql(result[1]);
     });
   }
 
-  before(function() {
+  before(() => {
     return fs.writeFile(pathFn.join(publicDir, 'foo.txt'), 'foo');
   });
 
-  beforeEach(function() {
+  beforeEach(() => {
     // Create a bare repo as a fake remote repo
-    return fs.mkdirs(fakeRemote).then(function() {
+    return fs.mkdirs(fakeRemote).then(() => {
       return spawn('git', ['init', '--bare', fakeRemote]);
     });
   });
 
-  after(function() {
+  after(() => {
     return fs.rmdir(baseDir);
   });
 
-  afterEach(function() {
-    return fs.rmdir(fakeRemote).then(function() {
+  afterEach(() => {
+    return fs.rmdir(fakeRemote).then(() => {
       return fs.rmdir(validateDir);
     });
   });
@@ -61,41 +61,41 @@ describe('OpenShift deployer', function() {
   }
 
   function validate() {
-    return clone().then(function() {
+    return clone().then(() => {
       // Check files
       return fs.readFile(pathFn.join(validateDir, 'public', 'foo.txt'));
-    }).then(function(result) {
+    }).then(result => {
       result.should.eql('foo');
 
       // Check package.json
       return compareFile(pathFn.join(assetDir, 'package.json'), pathFn.join(validateDir, 'package.json'));
-    }).then(function() {
+    }).then(() => {
       // Check server.js
       return compareFile(pathFn.join(assetDir, 'server.js'), pathFn.join(validateDir, 'server.js'));
     });
   }
 
-  it('default', function() {
+  it('default', () => {
     return deployer({
       repo: fakeRemote,
       silent: true
-    }).then(function() {
+    }).then(() => {
       return validate();
     });
   });
 
   it('server test');
 
-  it.skip('custom message', function() {
+  it.skip('custom message', () => {
     return deployer({
       repo: fakeRemote,
       message: 'custom message',
       silent: true
-    }).then(function() {
+    }).then(() => {
       return validate();
-    }).then(function() {
+    }).then(() => {
       return spawn('git', ['log', '-1', '--pretty=format:%s'], {cwd: validateDir});
-    }).then(function(content) {
+    }).then(content => {
       content.should.eql('custom message');
     });
   });
