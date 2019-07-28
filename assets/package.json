@@ -4,6 +4,6 @@
   "private": true,
   "main": "server.js",
   "dependencies": {
-    "superstatic": "^1.1.7"
+    "superstatic": "^6.0.4"
   }
 }
