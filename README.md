@@ -1,6 +1,9 @@
 # hexo-deployer-openshift
 
-[![Build Status](https://travis-ci.org/hexojs/hexo-deployer-openshift.svg?branch=master)](https://travis-ci.org/hexojs/hexo-deployer-openshift)  [![NPM version](https://badge.fury.io/js/hexo-deployer-openshift.svg)](http://badge.fury.io/js/hexo-deployer-openshift) [![Coverage Status](https://img.shields.io/coveralls/hexojs/hexo-deployer-openshift.svg)](https://coveralls.io/r/hexojs/hexo-deployer-openshift?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/6o6h5yfi3j16f06b/branch/master?svg=true)](https://ci.appveyor.com/project/tommy351/hexo-deployer-openshift/branch/master)
+[![Build Status](https://travis-ci.org/hexojs/hexo-deployer-openshift.svg?branch=master)](https://travis-ci.org/hexojs/hexo-deployer-openshift)
+[![NPM version](https://badge.fury.io/js/hexo-deployer-openshift.svg)](https://www.npmjs.com/package/hexo-deployer-openshift)
+[![Coverage Status](https://img.shields.io/coveralls/hexojs/hexo-deployer-openshift.svg)](https://coveralls.io/r/hexojs/hexo-deployer-openshift?branch=master)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/hexojs/hexo-deployer-openshift?branch=master&svg=true)](https://ci.appveyor.com/project/tommy351/hexo-deployer-openshift/branch/master)
 
 OpenShift deployer plugin for [Hexo].
 
