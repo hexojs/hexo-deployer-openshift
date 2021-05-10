@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "superstatic": "^6.0.4"
   }
