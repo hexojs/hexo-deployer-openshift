@@ -1,3 +1,7 @@
+# DEPRECATED!
+
+hexo-deployer-openshift has been deprecated.
+
 # hexo-deployer-openshift
 
 [![Build Status](https://travis-ci.org/hexojs/hexo-deployer-openshift.svg?branch=master)](https://travis-ci.org/hexojs/hexo-deployer-openshift)
